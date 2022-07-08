@@ -2,7 +2,6 @@
 import streamlit
 import pandas as pd
 import requests
-import snowflake.connector
 
 streamlit.title('My Mom\'s New Healthy Diner')
 streamlit.header('Breakfast Favorites')
@@ -39,6 +38,9 @@ fruitvice_requests = requests.get("https://fruityvice.com/api/fruit/" + fruit_ch
 fruitvice_normalized = pd.json_normalize(fruitvice_requests.json())
 streamlit.dataframe(fruitvice_normalized)
 
+streamlit.stop()
+
+import snowflake.connector
 
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
@@ -50,4 +52,4 @@ streamlit.dataframe(my_data_row)
 
 
 add_my_fruit = streamlit.text_input('What fruit would you like to add?')
-streamlit.text('Thanks for adding'+add_my_fruit)
+streamlit.text('Thanks for adding '+add_my_fruit)
