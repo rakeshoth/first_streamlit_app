@@ -31,4 +31,4 @@ fruitvice_requests = requests.get("https://fruityvice.com/api/fruit/" + "Kiwi")
 # streamlit.text(fruitvice_requests.json())
 fruitvice_normalized = pd.json_normalize(fruitvice_requests.json())
 fruitvice_df = streamlit.dataframe(fruitvice_normalized)
-fruitvice_df[1:]
+fruitvice_df
