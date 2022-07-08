@@ -1,6 +1,7 @@
 
 import streamlit
 import pandas as pd
+import requests
 
 streamlit.title('My Mom\'s New Healthy Diner')
 streamlit.header('Breakfast Favorites')
@@ -9,8 +10,8 @@ streamlit.text('🥗 Kale, Spinach & Rocket Smoothie')
 streamlit.text('🐔 Har-Boiled Free-Range Egg')
 streamlit.text('🥑🍞 Avacado Toast')
 
-
-
+fruitvice_requests = requests.get("https://fruityvice.com/api/fruit/Watermelon")
+streamlit.text(fruitvice_requests)
 
 # Display the table on the page.
 streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
